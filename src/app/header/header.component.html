@@ -1,4 +1,12 @@
 <p>{{heading}}</p>
 
 <img [src]="imgUrl" />
-<button [disabled]="isDisabled">Click me to enable</button>
+<button (click)="buttonClick()" [disabled]="!isDisabled">Click me to {{!isDisabled?'Enable':'Disable'}}</button>
+
+<button (click)="buttonClick()" [disabled]="isDisabled">Click me to {{isDisabled?'Disable':'Enable'}}</button>
+<button [class.active]="isActive" [class.not-active]="!isActive">Hello</button>
+
+<!-- <input [(ngModel)]="textValue" (keyup)="keyPressed($event)" type="text" /> -->
+<!-- <input [value]="textValue" (keyup.Enter)="keyPressed3(userName)" type="text" #userName /> -->
+<input [(ngModel)]="textValue" type="text" />
+<h3>{{textValue}}</h3>
