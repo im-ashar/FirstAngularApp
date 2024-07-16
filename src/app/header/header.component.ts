@@ -1,9 +1,10 @@
+import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, NgIf,NgTemplateOutlet,NgFor],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -13,6 +14,9 @@ export class HeaderComponent {
   isDisabled: boolean = false;
   isActive: boolean = true;
   textValue: string = 'Ashar Bhatti';
+  isUserLoggedIn: boolean = false;
+  userName: string = 'Ashar Bhatti';
+  users:Array<string>=['Ashar','Talha','Usama','Hamza']
 
   buttonClick() {
     console.log('Button Clicked');

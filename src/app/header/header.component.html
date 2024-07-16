@@ -10,3 +10,37 @@
 <!-- <input [value]="textValue" (keyup.Enter)="keyPressed3(userName)" type="text" #userName /> -->
 <input [(ngModel)]="textValue" type="text" />
 <h3>{{textValue}}</h3>
+
+<h3 *ngIf="isUserLoggedIn">UserName Is {{userName}}</h3>
+
+@if (isUserLoggedIn) {
+<h3>UserName Is {{userName}}</h3>
+}@else {
+<h3>UserName Is Not Available</h3>
+}
+
+<ng-template #hello>
+    <h2>Hello How Are You?</h2>
+</ng-template>
+
+<div [ngTemplateOutlet]="hello">
+    <h2>Sidebar</h2>
+</div>
+<div [ngTemplateOutlet]="hello">
+    <h2>Main</h2>
+</div>
+<div [ngTemplateOutlet]="hello">
+    <h2>Footer</h2>
+</div>
+
+<h1>ngFor Syntax</h1>
+<div *ngFor="let user of users">
+    <p>
+        {{user}}
+    </p>
+</div>
+
+<h1> &#64; For Syntax</h1>
+@for(user of users;track user){
+    <p>{{user}}</p>
+}
